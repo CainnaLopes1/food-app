@@ -46,13 +46,19 @@ def cadastarar_novo_restaurante():
     print(f'O Restaurante "{nome_do_restaurante}", Foi Cadastrado Com sucesso!\n')
     voltar_ao_menu()
 
-restaurates = ['pizza','Chocolate']
+restaurates = [{'nome':'sushi ya','categoria':'Japonesa','ativo':False},
+               {'nome':'pipers','categoria':'bar','ativo':True},
+               {'nome':'dois irmaos','categoria':'Portugues','ativo':False}]
 
 def listar_restaurantes():
     exibir_sub_titulos('Listando Restaurantes')
+    
     for restaurante in restaurates:
-        print(f'{restaurante}.')
-    voltar_ao_menu()
+        nome_restaurante = restaurante['nome']
+        categoria = restaurante['categoria']
+        ativo = restaurante ['ativo']
+        print(f'-{nome_restaurante}. | {categoria}. | {ativo}.')
+    voltar_ao_menu() 
 
 def opcao_invalida():
     print('Opção Invalida\n')
