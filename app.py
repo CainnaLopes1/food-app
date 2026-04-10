@@ -10,7 +10,10 @@ def exibir_nome():
 
 def exibir_sub_titulos(texto):
     os.system('cls')
+    linha = '-'*(len(texto))
+    print (linha)
     print(texto)
+    print (linha)
     print()
 
 def voltar_ao_menu():
@@ -54,15 +57,17 @@ restaurates = [{'nome':'sushi ya','categoria':'Japonesa','ativo':False},
 
 def listar_restaurantes():
     exibir_sub_titulos('Listando Restaurantes')
-    
+    print(f'{'Nome do Restaurantre'.ljust(21)}|{'Categoria'.ljust(20)}|{'Estado'}\n')
     for restaurante in restaurates:
         nome_restaurante = restaurante['nome']
         categoria = restaurante['categoria']
-        ativo = restaurante ['ativo']
-        print(f'-{nome_restaurante}. | {categoria}. | {ativo}.')
+        ativo = 'ativado' if restaurante ['ativo'] else 'Desativado'
+        print(f'-{nome_restaurante.ljust(20)}|{categoria.ljust(20)}|{ativo}')
     voltar_ao_menu() 
 
 def alterar_estado_restaurante():
+    '''Essa função serve para alterar o status do restaurante entre ativo e inativo'''
+    
     exibir_sub_titulos('Alterar estado do restaurante')
     nome_restaurante = input('Digite o nome do restaurante que deseja alterar o estado: ')
     restaurante_encontrado = False
